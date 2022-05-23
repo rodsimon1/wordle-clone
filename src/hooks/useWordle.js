@@ -7,6 +7,8 @@ const useWordle = (solution) => {
   const [history, setHistory] = useState([]);
   const [isCorrect, setIsCorrect] = useState(false);
   const [usedKeys, setUsedKeys] = useState({});
+  const [isTooShort, setIsTooShort] = useState(false);
+  const [alreadyExists, setAlreadyExists] = useState(false);
 
   // format a guess into an array of letter objects
   // eg [{key: 'a', color: yellow}]
@@ -91,12 +93,16 @@ const useWordle = (solution) => {
       }
       // do not allow duplicated guesses
       if (history.includes(currentGuess)) {
+        setAlreadyExists(true);
         console.log('already tried that word');
+        setTimeout(() => setAlreadyExists(false), 2000);
         return;
       }
       // guess should be 5 chars long
       if (currentGuess.length !== 5) {
         console.log('word must be 5 characters long');
+        setIsTooShort(true);
+        setTimeout(() => setIsTooShort(false), 2000);
         return;
       }
 
@@ -119,7 +125,7 @@ const useWordle = (solution) => {
     }
   };
 
-  return { turn, currentGuess, guesses, isCorrect, usedKeys, handleKeyUp };
+  return { turn, currentGuess, guesses, isCorrect, usedKeys, handleKeyUp, isTooShort, alreadyExists };
 };
 
 export default useWordle;
