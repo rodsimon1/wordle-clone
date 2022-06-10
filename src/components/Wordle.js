@@ -27,8 +27,9 @@ const Wordle = ({ solution }) => {
 
   return (
     <>
-      <div>Solution is: {solution}</div>
-      <div>Current guess: {currentGuess}</div>
+      <button onClick={() => console.log('click')}>New Game</button>
+      {/* <div>Solution is: {solution}</div>
+      <div>Current guess: {currentGuess}</div> */}
 
       <Grid currentGuess={currentGuess} guesses={guesses} turn={turn} />
       <Keypad usedKeys={usedKeys} />

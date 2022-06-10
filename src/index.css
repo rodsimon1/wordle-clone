@@ -13,6 +13,20 @@ h1 {
   color: #333;
 }
 
+button {
+  padding: 0.8rem;
+  margin: 0.5rem;
+  background: #eee;
+  font-weight: bold;
+  border: none;
+  color: #333;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+button:hover {
+  background: #bbb;
+}
+
 /* rows */
 .row {
   text-align: center;

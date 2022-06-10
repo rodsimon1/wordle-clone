@@ -21,6 +21,7 @@ function App() {
   return (
     <div className="App">
       <h1>Wordle Clone</h1>
+      <button onClick={() => console.log('sff')}>newgame</button>
       {solution && <Wordle solution={solution} />}
     </div>
   );
