@@ -5,15 +5,20 @@ function App() {
   const [solution, setSolution] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch('http://localhost:3001/solutions');
+    const fetchData = async (word) => {
+      const res = await fetch(`https://random-word-api.herokuapp.com/word?length=5`);
       const json = await res.json();
-      // console.log('solutions', json);
+      // console.log(json[0]);
+      setSolution(json[0]);
 
-      //     generate random int between 0 and 14
-      const randomSolution = json[Math.floor(Math.random() * json.length)];
-      setSolution(randomSolution.word);
-      // console.log('random solution', randomSolution);
+      // const res = await fetch('http://localhost:3001/solutions');
+      // const json = await res.json();
+      // // console.log('solutions', json);
+
+      // //     generate random int between 0 and 14
+      // const randomSolution = json[Math.floor(Math.random() * json.length)];
+      // setSolution(randomSolution.word);
+      // // console.log('random solution', randomSolution);
     };
     fetchData();
   }, [setSolution]);
@@ -21,7 +26,7 @@ function App() {
   return (
     <div className="App">
       <h1>Wordle Clone</h1>
-      <button onClick={() => console.log('sff')}>newgame</button>
+
       {solution && <Wordle solution={solution} />}
     </div>
   );
@@ -34,10 +39,4 @@ export default App;
 
   TO DO:
      -- button to start new game
-     -- in victory screen, squares jump one by one before modal
 */
-
-// solution data:
-// 1- 3rd party api <-- try that next
-// 2- own database (like mongo db)
-// 3- json file
