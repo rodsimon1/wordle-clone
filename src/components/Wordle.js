@@ -27,7 +27,9 @@ const Wordle = ({ solution }) => {
 
   return (
     <>
-      <button onClick={() => console.log('click')}>New Game</button>
+      <p>
+        Random word got from <a href="https://random-word-api.herokuapp.com/home">Random Word API</a>
+      </p>
       {/* <div>Solution is: {solution}</div>
       <div>Current guess: {currentGuess}</div> */}
 
