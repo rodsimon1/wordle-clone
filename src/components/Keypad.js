@@ -1,15 +1,11 @@
 import { useEffect, useState } from 'react';
+import data from '../data/db.json';
 
 const Keypad = ({ usedKeys }) => {
   const [letters, setLetters] = useState(null);
 
   useEffect(() => {
-    const fetchLetters = async () => {
-      const res = await fetch('http://localhost:3001/letters');
-      const json = await res.json();
-      setLetters(json);
-    };
-    fetchLetters();
+    setLetters(data.letters);
   }, []);
 
   return (

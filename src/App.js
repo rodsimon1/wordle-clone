@@ -10,15 +10,6 @@ function App() {
       const json = await res.json();
       // console.log(json[0]);
       setSolution(json[0]);
-
-      // const res = await fetch('http://localhost:3001/solutions');
-      // const json = await res.json();
-      // // console.log('solutions', json);
-
-      // //     generate random int between 0 and 14
-      // const randomSolution = json[Math.floor(Math.random() * json.length)];
-      // setSolution(randomSolution.word);
-      // // console.log('random solution', randomSolution);
     };
     fetchData();
   }, [setSolution]);
