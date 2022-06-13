@@ -19,15 +19,12 @@ function App() {
       <h1>Wordle Clone</h1>
 
       {solution && <Wordle solution={solution} />}
+
+      <footer>
+        Made with React by <a href="https://www.linkedin.com/in/rodrigo-simon/">Rodrigo Simon</a>
+      </footer>
     </div>
   );
 }
 
 export default App;
-
-/* 
-// json-server ./data/db.json --port 3001
-
-  TO DO:
-     -- button to start new game
-*/
